@@ -28,7 +28,7 @@ namespace Task2
         {
             if (a == 0 && b == 0)
             {
-                throw new ArgumentException("Two numbers cannot be 0 at the same time.");
+                throw new ArgumentException("Two numbers cannot be 0 at the same time.", nameof(a));
             }
 
             if (a == 0)
@@ -41,18 +41,15 @@ namespace Task2
                 return Math.Abs(a);
             }
 
-            checked
+            while (true)
             {
-                while (true)
+                if ((a %= b) == 0)
                 {
-                    if ((a %= b) == 0)
-                    {
-                        return Math.Abs(b);
-                    }
-                    else if ((b %= a) == 0)
-                    {
-                        return Math.Abs(a);
-                    }
+                    return Math.Abs(b);
+                }
+                else if ((b %= a) == 0)
+                {
+                    return Math.Abs(a);
                 }
             }
         }

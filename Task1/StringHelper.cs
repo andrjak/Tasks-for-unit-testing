@@ -32,7 +32,7 @@ namespace Task1
 
             if (str.Length == 0)
             {
-                throw new ArgumentException("String cannot be empty.");
+                throw new ArgumentException("String cannot be empty.", nameof(str));
             }
 
             int counter = 0;
